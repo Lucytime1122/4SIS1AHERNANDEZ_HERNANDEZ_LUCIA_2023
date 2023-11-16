@@ -50,25 +50,8 @@ para elegir alguna de las 14 opciones siguientes:
 
     //do{
         //aqui va todo el programa (menú del programa)
-        //System.out.println("Bienvenido al programa");
-        //System.out.println("Elige alguna opción deseada: ");
-        //System.out.println("1.- Bono o descuento por edad");
-        //System.out.println("2.- Convertir numeros decimales a binarios");
-        //System.out.println("3.- Convertir Temperaturas");
-        //System.out.println("4.- Numero de positivos y negativos");
-        //System.out.println("5.- Tienda");
-        //System.out.println("6.- Area y Perimetro");
-        //System.out.println("7.- Tabla");
-        //System.out.println("8.- Factorial");
-        //System.out.println("9.- Dibujos");
-        //System.out.println("10.-Figura Hueca");
-        //System.out.println("11.- Patrones de Codigo");
-        //System.out.println("12.- Diamante");
-        //System.out.println("13.- Calculadora");
-        //System.out.println("14.- Salir");
 
         //opcion = entrada.nextInt();
-
 
         //aqui adentro de preguntar
         //System.out.println("Deseas repetir el programa, escribe s para si");
@@ -89,8 +72,8 @@ class EstructurasControl{
 
         int opcion,numbinario, total, cantidadproducto,num1;
         int edad;
-        double precioabono;
-        float precio, resultado, compra;
+        double precioabono = 100.0;
+        float precio, resultado, compra = 0;
         String nombreproducto;
         String binario = "";
         String respuesta; 
@@ -121,21 +104,24 @@ class EstructurasControl{
                 case 1:
                     //Descuento por edad
                     System.out.println("Ingrese su edad: ");
-                    edad = entrada.nextInt();
-                    precioabono = 100.0; 
+                    edad = entrada.nextInt(); 
 
                     if(edad > 65){
-                        precioabono *=0.6;
+                        //40% desc mayores de 65 años
+                        while (edad > 65){
+                         //   if (precioabono *= 0.6;)
+                        }
+                       // precioabono *= 0.6;
 
                     } else if (edad < 21) {
-                        System.out.println("Sus padres son socios? (Sí/No): ");
+                        System.out.println("¿Sus padres son socios? (Sí/No): ");
                         respuesta = entrada.next();
                         if (respuesta.equalsIgnoreCase("Sí")) {
                             //45% desc si los padres son socios
-                            precioabono *= 0.55;
+                           // precioabono = 0.55;
                         } else {
                             //25% desc si los padres no son socios
-                            precioabono *= 0.75;
+                           // precioabono = 0.75;
                         }
 
                     }
@@ -161,6 +147,7 @@ class EstructurasControl{
 
                     }else if(numbinario == 0){
                         binario = "0" + binario;
+
                     }else{
                         binario = "No se puede convertir un numero negativo, solo positivo";
                     }
@@ -168,30 +155,63 @@ class EstructurasControl{
                     break;
 
                 case 3:
+                    //Conversion de grados
+                    System.out.println("Ingrese la temperatura en grados Fahrenheit: ");
+                    
                     break;
+
                 case 4:
                     break;
+
                 case 5:
+                    System.out.println("Bienvenido a la tienda Michis");
+                    System.out.println("Ingrese la cantidad de productos que desea comprar");
+                    total = entrada.nextInt();
+
+                    for(int i = 1; i <=total; i++){
+                        System.out.println("Ingrese el nombre del producto: ");
+                        nombreproducto = entrada.next();
+                        System.out.println("Ingrese el precio: ");
+                        precio = entrada.nextFloat();
+                        System.out.println("Ingrese la cantidad del producto: ");
+                        cantidadproducto = entrada.nextInt();
+
+                        resultado = precio * cantidadproducto;
+                        compra = compra + resultado; // compra += resultado
+                    }
+                    System.out.println("El total de la compra es: " + compra);
+                    compra = 0;
                     break;
+
                 case 6:
                     break;
+
                 case 7:
                     break;
+
                 case 8:
                     break;
+
                 case 9:
                     break;
+
                 case 10:
                     break;
+
                 case 11:
                     break;
+
                 case 12:
                     break;
+
                 case 13:
                     break;
+
                 case 14:
                     break;
+
                 default:
+
                     System.out.println("Elija una opción valida");
             }
 
