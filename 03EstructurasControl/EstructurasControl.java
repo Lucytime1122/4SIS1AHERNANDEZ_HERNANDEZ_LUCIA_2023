@@ -67,6 +67,7 @@ para elegir alguna de las 14 opciones siguientes:
         //System.out.println("13.- Calculadora");
         //System.out.println("14.- Salir");
 
+        //opcion = entrada.nextInt();
 
 
         //aqui adentro de preguntar
@@ -87,9 +88,12 @@ class EstructurasControl{
         Scanner entrada = new Scanner(System.in);
 
         int opcion,numbinario, total, cantidadproducto,num1;
+        int edad;
+        double precioabono;
         float precio, resultado, compra;
         String nombreproducto;
         String binario = "";
+        String respuesta; 
         char letra;
 
         do{
@@ -110,7 +114,88 @@ class EstructurasControl{
             System.out.println("13.- Calculadora");
             System.out.println("14.- Salir");
 
-            System.out.println("Deseas repetir el programa, escribe s para si");
+            opcion = entrada.nextInt();
+
+            //menu
+            switch(opcion){
+                case 1:
+                    //Descuento por edad
+                    System.out.println("Ingrese su edad: ");
+                    edad = entrada.nextInt();
+                    precioabono = 100.0; 
+
+                    if(edad > 65){
+                        precioabono *=0.6;
+
+                    } else if (edad < 21) {
+                        System.out.println("Sus padres son socios? (Sí/No): ");
+                        respuesta = entrada.next();
+                        if (respuesta.equalsIgnoreCase("Sí")) {
+                            //45% desc si los padres son socios
+                            precioabono *= 0.55;
+                        } else {
+                            //25% desc si los padres no son socios
+                            precioabono *= 0.75;
+                        }
+
+                    }
+
+                    System.out.println("El precio del abono es : $" + precioabono);
+                    break;
+
+                case 2:
+                    //decimal a binario
+                    System.out.println("Ingrese un numero positivo que desee convertir");
+                    numbinario = entrada.nextInt();
+                    //debe ser positivo
+                    if(numbinario > 0){
+                        //¿cuantas veces el numero se divide entre 2?
+                        while (numbinario > 0){
+                            if (numbinario%2 == 0){
+                                binario = "0" + binario;
+                            }else{
+                                binario = "1" + binario;
+                            }
+                            numbinario = (int)numbinario/2;
+                        }
+
+                    }else if(numbinario == 0){
+                        binario = "0" + binario;
+                    }else{
+                        binario = "No se puede convertir un numero negativo, solo positivo";
+                    }
+                    System.out.println("El numeo binario es: " + binario);
+                    break;
+
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    break;
+                default:
+                    System.out.println("Elija una opción valida");
+            }
+
+            System.out.println("Deseas repetir el programa, escribe s para sí");
 
             letra = entrada.next().charAt(0);
 
